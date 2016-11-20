@@ -1,0 +1,3 @@
+mosh = "{ 60000:61000 }"
+
+pass in proto udp to port $mosh
