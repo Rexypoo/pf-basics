@@ -1,0 +1,13 @@
+# Ban traffic based on the rate of new connections
+rate_limit = "5/1" # Limit to 5 connections per 1 second
+
+table <ban> persist
+
+pass in synproxy state \
+( \
+  source-track rule, \
+  max-src-conn-rate $rate_limit, \
+  overload <ban> flush global \
+)
+
+block in quick from <ban>
