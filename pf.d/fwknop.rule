@@ -1,0 +1,7 @@
+# The following rules are disabled by default
+# A better policy is to log all blocked incoming traffic
+# If for some reason you don't wish to log all ports you can log specific ports/ranges with the macro and rule below
+# Note that if your values for listen_ports conflicts with an open port it may override open ports depending on where the anchor is
+
+#listen_ports = "{ 62201 }" # Knocking port(s) to listen in on
+#block in log proto udp to port $listen_ports
