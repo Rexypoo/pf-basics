@@ -1,3 +1,2 @@
-mosh = "{ 60000:61000 }"
-
-pass in proto udp to port $mosh
+mosh = "{ 60000:61000 }"        # Default port range of mosh
+pass in proto udp to port $mosh # Allow traffic in to mosh
