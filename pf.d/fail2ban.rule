@@ -1,0 +1,4 @@
+# Rules to support fail2ban
+
+table <fail2ban> persist    # Create the table for fail2ban to use. The default fail2ban/actions.d/pf.conf specifies this table name
+block quick from <fail2ban> # Entries in the fail2ban table will be blocked. fail2ban handles removing old entries from the table
