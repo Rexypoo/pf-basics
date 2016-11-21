@@ -1,0 +1,17 @@
+# Ban traffic based on the rate of new connections
+#  This is meant to work with an entry in cron that clears out old items from a table
+#  pfctl -t temporary_ban -T expire 3600
+#  The above command will remove entries older than 3600 seconds any time it's invoked
+
+rate_limit = "5/1" # Limit to 5 connections per 1 second
+
+table <temporary_ban>
+
+pass in synproxy state \
+( \
+  source-track rule, \
+  max-src-conn-rate $rate_limit, \
+  overload <temporary_ban> flush global \
+)
+
+block in quick from <temporary_ban>
