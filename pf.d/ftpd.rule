@@ -1,0 +1,9 @@
+# This rule applies to ftp hosted on the firewalled server
+#  https://www.openbsd.org/faq/pf/ftp.html
+
+# You can adjust the incoming port range
+#  With ftpd you can set the sysctl variables net.inet.ip.porthifirst and net.inet.ip.porthilast
+incoming_ports = "49152:65535" # FTP dynamically allocated incoming data ports
+ftp_ports = "{ ftp, $incoming_ports }"
+
+pass in proto tcp to port $ftp_ports
