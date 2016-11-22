@@ -1,0 +1,1 @@
+pass in proto tcp to port ftp divert-to 127.0.0.1 port 8021
