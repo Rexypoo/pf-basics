@@ -1,0 +1,6 @@
+table <spamd-white> persist
+table <nospamd> persist file "/etc/mail/nospamd"
+pass in on egress proto tcp to port smtp divert-to 127.0.0.1 port spamd
+pass in on egress proto tcp from <nospamd> to port smtp
+pass in log on egress proto tcp from <spamd-white> to port smtp
+pass out log on egress proto tcp to port smtp
