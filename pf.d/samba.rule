@@ -1,0 +1,5 @@
+samba_udp = "137:138"
+samba_tcp = "{139,445}"
+
+pass in log proto udp to port $smb_udp
+pass in log proto tcp to port $smb_tcp
